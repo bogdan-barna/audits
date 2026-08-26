@@ -8,4 +8,5 @@ const catalogView=document.getElementById('catalogView'),docsView=document.getEl
 function openAppView(view){document.querySelectorAll('.view-button').forEach(button=>button.classList.toggle('active',button.dataset.view===view));if(view==='catalog'){catalogView.hidden=false;docsView.hidden=true;return}const doc=fullDocuments[view];if(!doc)return;catalogView.hidden=true;docsView.hidden=false;document.getElementById('docTitle').textContent=doc.label;document.getElementById('docNavTitle').textContent=doc.label;docContent.innerHTML=doc.html;docToc.innerHTML=doc.toc.map(item=>'<a class="level-'+item.level+'" href="#'+item.id+'">'+item.title+'</a>').join('');window.scrollTo({top:0,behavior:'smooth'});}
 document.querySelectorAll('.view-button').forEach(button=>button.addEventListener('click',()=>openAppView(button.dataset.view)));
 document.getElementById('backToCatalog').addEventListener('click',()=>openAppView('catalog'));
-</script></body></html>
+</script>
+</body></html>
